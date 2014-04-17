@@ -41,7 +41,7 @@
                 "scripts": [ "/js/handlers.js" ],
                 "modules": {
                     "mono_mapsContainer": "mono_maps"
-                }
+                },
                 "listen": {
                     "layoutLoggedInView": {
                         "ready": "Maps.layout.ready"
