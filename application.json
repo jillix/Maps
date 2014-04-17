@@ -1,0 +1,129 @@
+{
+    "appId": "mapsELKI1OJGJ8SMR68E6F2KMEGOEMT1",
+    "name": "Maps",
+    "routes": {
+        "404": "layout_not_found",
+        "login": "layout_login",
+        "/": "layout_home"
+    },
+    "locale": "en",
+    "domains": [
+        "maps.dev.jillix.net",
+        "maps.jillix.net",
+        "maps.mono.ch"
+    ],
+    "publicDir": "public",
+    "publicRole": "0",
+    "roles": [
+        { "id": 0, "name": "public" },
+        { "id": 1, "name": "login" }
+    ],
+    "miids": {
+        "layout_home": {
+            "module": "github/jillix/bind-layout/v0.2.2",
+            "roles": [ 0, 1 ],
+            "config": {
+                "html": "/html/home/index.html",
+                "css": [ "/css/style.css" ],
+                "title": "Maps",
+                "modules": {
+                    "#layoutLoggedInViewContainer": "layoutLoggedInView",
+                    "#layoutPublicInViewContainer": "layoutPublicInView",
+                    "#loginContainer": "login"
+                }
+            }
+        },
+        "layoutLoggedInView": {
+            "module": "github/jillix/bind-layout/v0.2.2",
+            "roles": [ 1 ],
+            "config": {
+                "html": "/html/home/loggedin_view.html",
+                "scripts": [ "/js/handlers.js" ],
+                "listen": {
+                    "layoutLoggedInView": {
+                        "ready": "Maps.layout.ready"
+                    }
+                }
+            }
+        },
+        "layoutPublicInView": {
+            "module": "github/jillix/bind-layout/v0.2.2",
+            "roles": [ 0 ],
+            "config": {
+                "html": "/html/home/public_view.html"
+            }
+        },
+        "login": {
+            "module": "github/jillix/login-providers/v0.2.1",
+            "roles": [ 0, 1 ],
+            "config": {
+                "html": "/html/login/login.html",
+                "loginPage": "/"
+            },
+            "operations": {
+                "redirect": {
+                    "roles": [ 0, 1 ],
+                    "params": [
+                        { "secretsFile": "/credentials/github.json" },
+                        { "secretsFile": "/credentials/github.json" }
+                    ]
+                },
+                "login": {
+                    "roles": [ 0, 1 ],
+                    "params": [
+                        {
+                            "secretsFile": "/credentials/github.json",
+                            "custom": "/login_custom.js",
+                            "ds": "accountDS",
+                            "role": "login"
+                        },
+                        {
+                            "secretsFile": "/credentials/github.json",
+                            "custom": "/login_custom.js",
+                            "ds": "accountDS",
+                            "role": "login"
+                        }
+                    ]
+                },
+                "logout": {
+                    "roles": [ 1 ],
+                    "params": []
+                },
+                "userInfo": {
+                    "roles": [ 0, 1 ],
+                    "params": []
+                }
+            }
+        },
+        "layout_login": {
+            "module": "github/jillix/bind-layout/v0.1.9",
+            "roles": [ 0, 1 ],
+            "config": {
+                "html": "/html/login/index.html",
+                "css": [ "/css/style.css" ],
+                "title": "Signing in ...",
+                "modules": {
+                    "#loginContainer": "login"
+                },
+                "logoutLink": "/@/login/logout"
+            }
+        },
+        "layout_not_found": {
+            "module": "github/jillix/bind-layout/v0.2.2",
+            "roles": [ 0, 1 ],
+            "config": {
+                "html": "/html/errors/404.html",
+                "css": [
+                    "/css/style.css",
+                    "/css/not-found.css"
+                ],
+                "title": "404 Page not found"
+            }
+        },
+        "crud": {
+            "module": "github/jillix/crud/v0.3.0-beta",
+            "roles": [ 0, 1 ],
+            "config": {}
+        }
+    }
+}

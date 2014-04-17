@@ -1,0 +1,21 @@
+body {
+    background: url("/images/pattern-9cr7.png");
+}
+
+.hided { display: none; }
+
+.login-panel {
+    box-shadow: 0 0 181px rgb(0, 30, 68);
+}
+
+a {
+    color: white;
+    font-weight: bold;
+}
+
+a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.container.login-container { max-width: 600px; }
