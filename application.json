@@ -54,6 +54,13 @@
             "roles": [1],
             "config": {
                 "html": "/html/mono_maps/index.html"
+            },
+            "operations": {
+                "create": { "roles": [ 1 ] },
+                "read":   { "roles": [ 1 ] },
+                "update": { "roles": [ 1 ] },
+                "delete": { "roles": [ 1 ] },
+                "embed":  { "roles": [ 1 ] }
             }
         },
         "layoutPublicInView": {
@@ -96,12 +103,10 @@
                     ]
                 },
                 "logout": {
-                    "roles": [ 1 ],
-                    "params": []
+                    "roles": [ 1 ]
                 },
                 "userInfo": {
-                    "roles": [ 0, 1 ],
-                    "params": []
+                    "roles": [ 0, 1 ]
                 }
             }
         },
