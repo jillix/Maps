@@ -1,6 +1,7 @@
 /* bootstrap */
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css");
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+@import url("//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css");
 
 /* general */
 body { background: #ecf0f1; }
