@@ -39,11 +39,21 @@
             "config": {
                 "html": "/html/home/loggedin_view.html",
                 "scripts": [ "/js/handlers.js" ],
+                "modules": {
+                    "mono_mapsContainer": "mono_maps"
+                }
                 "listen": {
                     "layoutLoggedInView": {
                         "ready": "Maps.layout.ready"
                     }
                 }
+            }
+        },
+        "mono_maps": {
+            "module": "github/jillix/mono_maps/dev",
+            "roles": [1],
+            "config": {
+                "html": "/html/mono_maps/index.html"
             }
         },
         "layoutPublicInView": {
