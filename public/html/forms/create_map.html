@@ -1,0 +1,65 @@
+<form class="form-horizontal">
+
+<!-- Form Name -->
+<legend>Create a new map</legend>
+
+<input type="hidden" data-field="formType" value="map">
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputMapName">Map Name</label>
+  <div class="col-md-8">
+  <input id="inputMapName" name="inputMapName" type="text" placeholder="" class="form-control input-md" data-field="name">
+  <span class="help-block">The name of the map</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputLat">Latitude</label>
+  <div class="col-md-8">
+  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="lat">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputLongitude">Longitude</label>
+  <div class="col-md-8">
+  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="lng">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputZoom">Zoom</label>
+  <div class="col-md-8">
+  <input id="inputZoom" name="inputZoom" type="text" placeholder="" class="form-control input-md" data-field="zoom">
+
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputMapType">Map type</label>
+  <div class="col-md-8">
+    <select id="inputMapType" name="inputMapType" class="form-control" data-field="type">
+      <option value="">Select a map type</option>
+      <option value="ROADMAP">ROADMAP</option>
+      <option value="SATELLITE">SATELLITE</option>
+      <option value="HYBRID">HYBRID</option>
+      <option value="TERRAIN">TERRAIN</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitButton11"></label>
+  <div class="col-md-8">
+    <button id="submitButton11" class="btn btn-success">Ok</button>
+    <button id="closeButton1" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+</form>
