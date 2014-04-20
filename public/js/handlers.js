@@ -21,26 +21,31 @@
                     type: 'string'
                   , label: "Name"
                   , order: 1
+                  , nosort: true
                 }
               , "options.center.lat": {
                     type: 'number'
                   , label: "Lat"
                   , order: 2
+                  , nosort: true
                 }
               , "options.center.lng": {
                     type: 'number'
                   , label: "Lng"
                   , order: 3
+                  , nosort: true
                 }
               , "options.zoom": {
                     type: 'number'
                   , label: "Zoom"
                   , order: 4
+                  , nosort: true
                 }
               , "options.type": {
                     type: 'string'
                   , label: "Type"
                   , order: 5
+                  , nosort: true
                 }
             }
         });
