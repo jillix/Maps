@@ -159,7 +159,7 @@
             }
         },
         "crud": {
-            "module": "github/jillix/crud/v0.3.0-beta",
+            "module": "github/jillix/crud/dev",
             "roles": [ 0, 1 ],
             "config": {}
         }
