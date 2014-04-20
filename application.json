@@ -29,6 +29,7 @@
                 "modules": {
                     "#layoutLoggedInViewContainer": "layoutLoggedInView",
                     "#layoutPublicInViewContainer": "layoutPublicInView",
+                    "#mono_mapsContainer": "mono_maps",
                     "#loginContainer": "login"
                 }
             }
@@ -51,7 +52,7 @@
         },
         "mono_maps": {
             "module": "github/jillix/mono-maps/dev",
-            "roles": [1],
+            "roles": [0, 1],
             "config": {
                 "html": "/html/mono_maps/index.html"
             },
@@ -60,7 +61,7 @@
                 "read":   { "roles": [ 1 ] },
                 "update": { "roles": [ 1 ] },
                 "delete": { "roles": [ 1 ] },
-                "embed":  { "roles": [ 1 ] }
+                "embed":  { "roles": [ 0, 1 ] }
             }
         },
         "layoutPublicInView": {
