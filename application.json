@@ -40,15 +40,14 @@
             "config": {
                 "html": "/html/home/loggedin_view.html",
                 "scripts": [ "/js/handlers.js" ],
+                "waitFor": [ "mono_maps", "maps_table" ],
                 "modules": {
-                    "mono_mapsContainer": "mono_maps"
+                    "#mono_mapsContainer": "mono_maps"
+                  , "#maps_tableContainer": "maps_table"
                 },
                 "listen": {
                     "layoutLoggedInView": {
-                        "ready": "Maps.ready.layout"
-                    },
-                    "mono_maps": {
-                        "ready": "Maps.ready.mono_maps"
+                        "ready": "Maps.ready"
                     }
                 }
             }
@@ -121,6 +120,29 @@
                 "title": "Signing in ...",
                 "modules": {
                     "#loginContainer": "login"
+                }
+            }
+        },
+        "maps_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.12",
+            "roles": [1],
+            "config": {
+                "html": "/html/tables/maps.html",
+                "table": ".data-table",
+                "container": ".data-table tbody",
+                "options": {
+                    "infiniteScroll": {
+                        "count": 20,
+                        "automatic": false
+                    },
+                    "sort": true,
+                    "safeSelection": false,
+                    "showHidden": false,
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
+                        "selected": "selected"
+                    }
                 }
             }
         },
