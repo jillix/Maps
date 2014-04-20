@@ -131,13 +131,6 @@
                 "table": ".data-table",
                 "container": ".data-table tbody",
                 "options": {
-                    "infiniteScroll": {
-                        "count": 20,
-                        "automatic": false
-                    },
-                    "sort": true,
-                    "safeSelection": false,
-                    "showHidden": false,
                     "selection": "single",
                     "id": "_id",
                     "classes": {
