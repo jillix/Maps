@@ -71,7 +71,7 @@
             }
         },
         "login": {
-            "module": "github/jillix/login-providers/v0.2.1",
+            "module": "github/jillix/login-providers/v0.2.2",
             "roles": [ 0, 1 ],
             "config": {
                 "html": "/html/login/login.html",
