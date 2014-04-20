@@ -15,5 +15,6 @@ exports.login = function (link, userData, callback) {
       , fullname: userData.fullname
       , crudRole: crudRole
       , provider: "github"
+      , userId: userData.id
     });
 }
