@@ -53,9 +53,7 @@
         "mono_maps": {
             "module": "github/jillix/mono-maps/dev",
             "roles": [0, 1],
-            "config": {
-                "html": "/html/mono_maps/index.html"
-            },
+            "config": {},
             "operations": {
                 "create": { "roles": [ 1 ] },
                 "read":   { "roles": [ 1 ] },
