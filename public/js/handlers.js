@@ -35,10 +35,10 @@
          *  Layout is ready.
          *
          */
-      , mono_maps: function () {
+      , mono_maps: function (miid) {
 
             // set layout
-            MonoMaps = this;
+            MonoMaps = miid;
 
             // call module loaded handler
             moduleLoadedHandler();
