@@ -50,6 +50,7 @@
             }
         });
 
+        // read maps and render them
         M.miids.mono_maps.read({type: "map", query: {}}, function (err, data) {
             M.miids.maps_table.renderItemsFromResult(err, data)
         });
