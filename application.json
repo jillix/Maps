@@ -119,8 +119,7 @@
                 "title": "Signing in ...",
                 "modules": {
                     "#loginContainer": "login"
-                },
-                "logoutLink": "/@/login/logout"
+                }
             }
         },
         "layout_not_found": {
