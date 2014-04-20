@@ -8,23 +8,37 @@
 
     // modules
     var Layout = null
-      , howManyModules = 1
+      , MonoMaps = null
+      , howManyModules = 2
       , moduleLoadComplete = 0
       ;
 
     /*************************
      *        LAYOUT         *
      *************************/
-    window.Maps.layout = {
+    window.Maps.ready = {
         /**
          *  Layout ready
          *  Layout is ready.
          *
          */
-        ready: function () {
+        layout: function () {
 
             // set layout
             Layout = this;
+
+            // call module loaded handler
+            moduleLoadedHandler();
+        }
+        /**
+         *  Layout ready
+         *  Layout is ready.
+         *
+         */
+      , mono_maps: function () {
+
+            // set layout
+            MonoMaps = this;
 
             // call module loaded handler
             moduleLoadedHandler();

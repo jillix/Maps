@@ -45,7 +45,10 @@
                 },
                 "listen": {
                     "layoutLoggedInView": {
-                        "ready": "Maps.layout.ready"
+                        "ready": "Maps.ready.layout"
+                    },
+                    "mono_maps": {
+                        "ready": "Maps.ready.mono_maps"
                     }
                 }
             }
