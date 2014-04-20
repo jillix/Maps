@@ -124,7 +124,7 @@
             }
         },
         "maps_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.12",
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.13",
             "roles": [1],
             "config": {
                 "html": "/html/tables/maps.html",
