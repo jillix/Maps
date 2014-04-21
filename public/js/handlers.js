@@ -7,6 +7,14 @@
     var Maps = window.Maps || {};
     window.Maps = Maps;
 
+    /**
+     *  This function computes the embed link
+     *
+     * */
+    Maps.computeEmbedLink = function (module, data) {
+        return "<a target='_blank' href='/embed?mapId=" + data._id + "'>Open Map</a>";
+    };
+
     var Data = {};
 
     /**
@@ -64,6 +72,13 @@
                   , label: "Type"
                   , order: 5
                   , nosort: true
+                }
+              , "embedLink": {
+                    type: "string"
+                  , label: "Embed Link"
+                  , order: 6
+                  , nosort: true
+                  , filter: "Maps.computeEmbedLink"
                 }
             }
         }
