@@ -71,26 +71,31 @@
                     type: "number"
                   , label: "Lat"
                   , order: 1
+                  , nosort: true
                 }
               , "position.lng": {
                     type: "number"
                   , label: "Lng"
                   , order: 2
+                  , nosort: true
                 }
               , visible: {
                     type: "boolean"
                   , label: "Visible"
                   , order: 3
+                  , nosort: true
                 }
               , icon: {
                     type: "objectid"
                   , label: "Icon"
                   , order: 4
+                  , nosort: true
                 }
               , infowin: {
                     type: "objectid"
                   , label: "Info Window"
                   , order: 5
+                  , nosort: true
                 }
             }
         }
@@ -101,21 +106,25 @@
                     type: "string"
                   , label: "Title"
                   , order: 1
+                  , nosort: true
                 }
               , content: {
                     type: "string"
                   , label: "Content"
                   , order: 2
+                  , nosort: true
                 }
               , "pixelOffset.x": {
                     type: "number"
                   , label: "Offset X"
                   , order: 3
+                  , nosort: true
                 }
               , "pixelOffset.y": {
                     type: "number"
                   , label: "Offset Y"
                   , order: 4
+                  , nosort: true
                 }
             }
         }
@@ -126,36 +135,43 @@
                     type: 'string'
                   , label: "Image"
                   , order: 1
+                  , nosort: true
                 }
               , "size.w": {
                     type: 'number'
                   , label: "Width"
                   , order: 2
+                  , nosort: true
                 }
               , "size.h": {
                     type: 'number'
                   , label: "Height"
                   , order: 3
+                  , nosort: true
                 }
               , "origin.x": {
                     type: 'number'
                   , label: "Origin X"
                   , order: 4
+                  , nosort: true
                 }
               , "origin.y": {
                     type: 'number'
                   , label: "Origin Y"
                   , order: 5
+                  , nosort: true
                 }
               , "anchor.x": {
                     type: 'number'
                   , label: "Anchor X"
                   , order: 6
+                  , nosort: true
                 }
               , "anchor.y": {
                     type: 'number'
                   , label: "Anchor Y"
                   , order: 7
+                  , nosort: true
                 }
             }
         }
