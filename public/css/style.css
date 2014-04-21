@@ -6,6 +6,10 @@
 /* general */
 body { background: #ecf0f1; }
 
+a {
+    color: white;
+}
+
 /* util classes */
 .mt-s  { margin-top: 15px  !important; }
 .mt-l  { margin-top: 50px  !important; }
