@@ -348,6 +348,7 @@
                         lat: Number (formObj.lat)
                       , lng: Number (formObj.lng)
                     }
+                  , title: formObj.title
                   , label: formObj.label
                   , visible: Boolean (formObj.visible)
                   , icon: formObj.icon
@@ -366,13 +367,8 @@
                 break;
             case "infowin":
                 data = {
-                    title: formObj.title
-                  , label: formObj.label
+                    label: formObj.label
                   , content: formObj.content
-                  , pixelOffset: {
-                        x: Number (formObj.pixelOffsetX)
-                      , y: Number (formObj.pixelOffsetY)
-                    }
                 };
                 break;
             case "icon":
