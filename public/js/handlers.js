@@ -153,10 +153,10 @@
         });
 
         // create map
-        $(".btn.btn-create-map").on("click", function () {
+        $("[data-form]").on("click", function () {
 
             // load form
-            M.miids.forms.loadForm ({ formId: "create_map" }, function (err, data) {
+            M.miids.forms.loadForm ({ formId: $(this).attr("data-form") }, function (err, data) {
 
                 // handle error
                 if (err) {
@@ -192,7 +192,55 @@
                       , zoom: Number (formObj.zoom)
                       , type: formObj.type
                     }
+                };
+                break;
+            case "marker":
+                data = {
+                    position: {
+                        lat: Number (formObj.lat)
+                      , lng: Number (formObj.lng)
+                    }
+                  , visible: Boolean (formObj.visible)
+                  , icon: formObj.icon
+                  , infowin: formObj.infowin
+                };
+
+                // no infowindow
+                if (!formObj.infowin) {
+                    delete data.infowin;
                 }
+
+                // no icon
+                if (!formObj.icon) {
+                    delete data.icon;
+                }
+                break;
+            case "infowin":
+                data = {
+                    title: formObj.title
+                  , content: formObj.content
+                  , pixelOffset: {
+                        x: Number (formObj.pixelOffsetX)
+                      , y: Number (formObj.pixelOffsetY)
+                    }
+                };
+                break;
+            case "icon":
+                data = {
+                    path: formObj.path
+                  , size: {
+                        w: Number (formObj.width)
+                      , h: Number (formObj.height)
+                    }
+                  , origin: {
+                        x: Number (formObj.originX)
+                      , y: Number (formObj.originY)
+                    }
+                  , anchor: {
+                        x: Number (formObj.anchorX)
+                      , y: Number (formObj.anchorY)
+                    }
+                };
                 break;
         }
 
