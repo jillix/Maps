@@ -5,6 +5,7 @@
         "404": "layout_not_found"
       , "login": "layout_login"
       , "/": "layout_home"
+      , "embed": "layout_embed"
     }
   , "locale": "en"
   , "domains": [
@@ -265,6 +266,25 @@
                   , "id": "_id"
                   , "classes": {
                         "selected": "selected"
+                    }
+                }
+            }
+        }
+      , "layout_embed": {
+            "module": "github/jillix/bind-layout/v0.2.2"
+          , "roles": [ 0, 1 ]
+          , "config": {
+                "html": "/html/embed/index.html"
+              , "css": [ "/css/embed.css" ]
+              , "scripts": [ "/js/embed.js" ]
+              , "title": "jxMaps"
+              , "waitFor": [ "mono_maps" ]
+              , "modules": {
+                    "#mono_mapsContainer": "mono_maps"
+                }
+              , "listen": {
+                    "layout_embed": {
+                        "ready": "Maps.embed.ready"
                     }
                 }
             }
