@@ -7,6 +7,26 @@
     var Maps = window.Maps || {};
     window.Maps = Maps;
 
+    /**
+     *  This function reads the documents from database and refreshes
+     *  the tables.
+     *
+     * */
+    function refreshTables () {
+
+        var types = [ "map", "marker", "infowin", "icon" ];
+
+        // each type
+        for (var i = 0; i < types.length; ++i) {
+            (function (cType) {
+                // read maps/markers/infowins/icons and render them
+                M.miids.mono_maps.read({type: cType, query: {}}, function (err, data) {
+                    M.miids[cType + "s_table"].renderItemsFromResult(err, data)
+                });
+            })(types[i]);
+        }
+    }
+
     // pseudo templates used for generating table headers
     const TEMPLATES = {
         maps: {
@@ -147,10 +167,8 @@
             M.miids[cTemplate + "_table"].setTemplate (TEMPLATES[cTemplate]);
         }
 
-        // read maps and render them
-        M.miids.mono_maps.read({type: "map", query: {}}, function (err, data) {
-            M.miids.maps_table.renderItemsFromResult(err, data)
-        });
+        // refresh tables
+        refreshTables ();
 
         // create map
         $("[data-form]").on("click", function () {
