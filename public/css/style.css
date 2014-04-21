@@ -22,12 +22,12 @@ body { background: #ecf0f1; }
     color: white;
 }
 
-#maps_table table {
+table {
     background: #2980b9;
     font-weight: bold;
 }
 
-#maps_table table thead {
+table thead {
     background: #2771A2;
 }
 

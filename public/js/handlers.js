@@ -7,6 +7,124 @@
     var Maps = window.Maps || {};
     window.Maps = Maps;
 
+    // pseudo templates used for generating table headers
+    const TEMPLATES = {
+        maps: {
+            options: {}
+          , schema: {
+                name: {
+                    type: "string"
+                  , label: "Name"
+                  , order: 1
+                  , nosort: true
+                }
+              , "options.center.lat": {
+                    type: "number"
+                  , label: "Lat"
+                  , order: 2
+                  , nosort: true
+                }
+              , "options.center.lng": {
+                    type: "number"
+                  , label: "Lng"
+                  , order: 3
+                  , nosort: true
+                }
+              , "options.zoom": {
+                    type: "number"
+                  , label: "Zoom"
+                  , order: 4
+                  , nosort: true
+                }
+              , "options.type": {
+                    type: "string"
+                  , label: "Type"
+                  , order: 5
+                  , nosort: true
+                }
+            }
+        }
+      , markers: {
+            options: {}
+          , schema: {
+                "position.lat": {
+                    type: "number"
+                  , label: "Lat"
+                }
+              , "position.lng": {
+                    type: "number"
+                  , label: "Lng"
+                }
+              , visible: {
+                    type: "boolean"
+                  , label: "Visible"
+                }
+              , icon: {
+                    type: "objectid"
+                  , label: "Icon"
+                }
+              , infowin: {
+                    type: "objectid"
+                  , label: "Info Window"
+                }
+            }
+        }
+      , infowins: {
+            options: {}
+          , schema: {
+                title: {
+                    type: "string"
+                  , label: "Title"
+                }
+              , content: {
+                    type: "string"
+                  , label: "Content"
+                }
+              , "pixelOffset.x": {
+                    type: "number"
+                  , label: "Offset X"
+                }
+              , "pixelOffset.y": {
+                    type: "number"
+                  , label: "Offset Y"
+                }
+            }
+        }
+      , icons: {
+            options: {}
+          , schema: {
+                path: {
+                    type: 'string'
+                  , label: "Image"
+                }
+              , "size.w": {
+                    type: 'number'
+                  , label: "Width"
+                }
+              , "size.h": {
+                    type: 'number'
+                  , label: "Height"
+                }
+              , "origin.x": {
+                    type: 'number'
+                  , label: "Origin X"
+                }
+              , "origin.y": {
+                    type: 'number'
+                  , label: "Origin Y"
+                }
+              , "anchor.x": {
+                    type: 'number'
+                  , label: "Anchor X"
+                }
+              , "anchor.y": {
+                    type: 'number'
+                  , label: "Anchor Y"
+                }
+            }
+        }
+    };
+
     /**
      *  Logged in view layout is ready
      *
@@ -16,43 +134,18 @@
         // load bootstrap js
         $.getScript ("//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js");
 
-        // set table template
-        M.miids.maps_table.setTemplate ({
-            id: "dummy"
-          , options: {}
-          , schema: {
-                name: {
-                    type: 'string'
-                  , label: "Name"
-                  , order: 1
-                  , nosort: true
-                }
-              , "options.center.lat": {
-                    type: 'number'
-                  , label: "Lat"
-                  , order: 2
-                  , nosort: true
-                }
-              , "options.center.lng": {
-                    type: 'number'
-                  , label: "Lng"
-                  , order: 3
-                  , nosort: true
-                }
-              , "options.zoom": {
-                    type: 'number'
-                  , label: "Zoom"
-                  , order: 4
-                  , nosort: true
-                }
-              , "options.type": {
-                    type: 'string'
-                  , label: "Type"
-                  , order: 5
-                  , nosort: true
-                }
-            }
-        });
+        // set table templates
+        var templatesToSet = Object.keys (TEMPLATES);
+
+        // each template
+        for (var i = 0; i < templatesToSet.length; ++i) {
+
+            // get the current template
+            var cTemplate = templatesToSet[i];
+
+            // set template
+            M.miids[cTemplate + "_table"].setTemplate (TEMPLATES[cTemplate]);
+        }
 
         // read maps and render them
         M.miids.mono_maps.read({type: "map", query: {}}, function (err, data) {

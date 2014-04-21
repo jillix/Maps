@@ -93,6 +93,9 @@
                         {
                             "forms": {
                                 "create_map": "/public/html/forms/create_map.html"
+                              , "create_marker": "/public/html/forms/create_marker.html"
+                              , "create_infowin": "/public/html/forms/create_infowin.html"
+                              , "create_icon": "/public/html/forms/create_icon.html"
                             }
                         }
                     ]

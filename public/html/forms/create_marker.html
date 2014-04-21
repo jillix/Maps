@@ -1,0 +1,67 @@
+<form class="form-horizontal">
+
+<!-- Form Name -->
+<legend>Create a new marker</legend>
+
+<input type="hidden" data-field="formType" value="marker">
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputLat">Latitude</label>
+  <div class="col-md-8">
+  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="lat">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputLongitude">Longitude</label>
+  <div class="col-md-8">
+  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="lng">
+
+  </div>
+</div>
+
+<!-- Multiple Checkboxes -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputVisible">Options</label>
+  <div class="col-md-4">
+  <div class="checkbox">
+    <label for="inputVisible-0">
+      <input type="checkbox" name="inputVisible" id="inputVisible-0" value="visible">
+      Visible
+    </label>
+    </div>
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputIcon">Icon</label>
+  <div class="col-md-8">
+    <select id="inputIcon" name="inputIcon" class="form-control">
+      <option value="">Select Icon</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputInfoWindow">Info Window</label>
+  <div class="col-md-8">
+    <select id="inputInfoWindow" name="inputInfoWindow" class="form-control">
+      <option value="">Select Info Window</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitButton11"></label>
+  <div class="col-md-8">
+    <button id="submitButton11" class="btn btn-success">Ok</button>
+    <button id="closeButton1" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+</form>
