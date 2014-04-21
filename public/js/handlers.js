@@ -4,13 +4,14 @@
  * */
 (function (window) {
 
-    window.Maps = window.Maps || {};
+    var Maps = window.Maps || {};
+    window.Maps = Maps;
 
     /**
      *  Logged in view layout is ready
      *
      * */
-    window.Maps.ready = function () {
+    Maps.ready = function () {
 
         // load bootstrap js
         $.getScript ("//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js");
@@ -79,7 +80,7 @@
      *  Form serializer module will call this function
      *
      * */
-    window.Maps.dialogSaved = function (formObj) {
+    Maps.dialogSaved = function (formObj) {
 
         // get the type
         var type = formObj.formType;
