@@ -40,10 +40,19 @@
             "config": {
                 "html": "/html/home/loggedin_view.html",
                 "scripts": [ "/js/handlers.js" ],
-                "waitFor": [ "mono_maps", "maps_table" ],
+                "waitFor": [
+                    "mono_maps",
+                    "maps_table",
+                    "markers_table",
+                    "infowins_table",
+                    "icons_table"
+                ],
                 "modules": {
                     "#mono_mapsContainer": "mono_maps"
                   , "#maps_tableContainer": "maps_table"
+                  , "#markers_tableContainer": "markers_table"
+                  , "#infowins_tableContainer": "infowins_table"
+                  , "#icons_tableContainer": "icons_table"
                   , "#formsContainer": "forms"
                 },
                 "listen": {
@@ -154,8 +163,89 @@
             "roles": [1],
             "config": {
                 "html": "/html/tables/maps.html",
-                "table": ".data-table",
-                "container": ".data-table tbody",
+                "table": ".maps-table",
+                "container": ".maps-table tbody",
+                "template": {
+                    "binds": [
+                        {
+                            "on": [{
+                                "name": "click",
+                                "handler": "selectItem",
+                                "noEvent": true
+                            }]
+                        }
+                    ]
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
+                        "selected": "selected"
+                    }
+                }
+            }
+        },
+        "markers_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.13",
+            "roles": [1],
+            "config": {
+                "html": "/html/tables/markers.html",
+                "table": ".markers-table",
+                "container": ".markers-table tbody",
+                "template": {
+                    "binds": [
+                        {
+                            "on": [{
+                                "name": "click",
+                                "handler": "selectItem",
+                                "noEvent": true
+                            }]
+                        }
+                    ]
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
+                        "selected": "selected"
+                    }
+                }
+            }
+        },
+        "infowins_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.13",
+            "roles": [1],
+            "config": {
+                "html": "/html/tables/infowins.html",
+                "table": ".infowins-table",
+                "container": ".infowins-table tbody",
+                "template": {
+                    "binds": [
+                        {
+                            "on": [{
+                                "name": "click",
+                                "handler": "selectItem",
+                                "noEvent": true
+                            }]
+                        }
+                    ]
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
+                        "selected": "selected"
+                    }
+                }
+            }
+        },
+        "icons_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.13",
+            "roles": [1],
+            "config": {
+                "html": "/html/tables/icons.html",
+                "table": ".icons-table",
+                "container": ".icons-table tbody",
                 "template": {
                     "binds": [
                         {
