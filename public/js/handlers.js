@@ -70,7 +70,13 @@
       , markers: {
             options: {}
           , schema: {
-                "position.lat": {
+                label: {
+                    type: "string"
+                  , label: "Label"
+                  , order: 0
+                  , nosort: true
+                }
+              , "position.lat": {
                     type: "number"
                   , label: "Lat"
                   , order: 1
@@ -105,7 +111,13 @@
       , infowins: {
             options: {}
           , schema: {
-                title: {
+                label: {
+                    type: "string"
+                  , label: "Label"
+                  , order: 0
+                  , nosort: true
+                }
+              , title: {
                     type: "string"
                   , label: "Title"
                   , order: 1
@@ -134,7 +146,13 @@
       , icons: {
             options: {}
           , schema: {
-                path: {
+                label: {
+                    type: "string"
+                  , label: "Label"
+                  , order: 0
+                  , nosort: true
+                }
+              , path: {
                     type: 'string'
                   , label: "Image"
                   , order: 1
@@ -224,13 +242,41 @@
                         // TODO
                         break;
                     case "create_marker":
-                        // TODO
-                        break;
-                    case "create_infowin":
-                        // TODO
-                        break;
-                    case "create_icon":
-                        // TODO
+
+                        // icons and infowindows options
+                        var $selectOneOption = $("<option>", {
+                                value: ""
+                              , html: "Choose an option"
+                            })
+                          , $icons = [$selectOneOption.clone()]
+                          , $infoWins = [$selectOneOption.clone()]
+                          ;
+
+                        // create icons
+                        for (var i = 0; i < Data.icon.length; ++i) {
+                            var cIcon = Data.icon[i];
+                            $icons.push (
+                                $("<option>", {
+                                    value: cIcon._id
+                                  , html: cIcon.label || cIcon._id
+                                })
+                            );
+                        }
+
+                        // create infowindows
+                        for (var i = 0; i < Data.infowin.length; ++i) {
+                            var cInfoWin = Data.infowin[i];
+                            $infoWins.push (
+                                $("<option>", {
+                                    value: cInfoWin._id
+                                  , html: cInfoWin.label || cInfoWin._id
+                                })
+                            );
+                        }
+
+                        // append icons and infowindows
+                        $("[data-field='icon']").empty().append($icons);
+                        $("[data-field='infowin']").empty().append($infoWins);
                         break;
                 }
 
@@ -271,6 +317,7 @@
                         lat: Number (formObj.lat)
                       , lng: Number (formObj.lng)
                     }
+                  , label: formObj.label
                   , visible: Boolean (formObj.visible)
                   , icon: formObj.icon
                   , infowin: formObj.infowin
@@ -289,6 +336,7 @@
             case "infowin":
                 data = {
                     title: formObj.title
+                  , label: formObj.label
                   , content: formObj.content
                   , pixelOffset: {
                         x: Number (formObj.pixelOffsetX)
@@ -299,6 +347,7 @@
             case "icon":
                 data = {
                     path: formObj.path
+                  , label: formObj.label
                   , size: {
                         w: Number (formObj.width)
                       , h: Number (formObj.height)
