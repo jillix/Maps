@@ -7,6 +7,8 @@
     var Maps = window.Maps || {};
     window.Maps = Maps;
 
+    var Data = {};
+
     /**
      *  This function reads the documents from database and refreshes
      *  the tables.
@@ -22,6 +24,7 @@
                 // read maps/markers/infowins/icons and render them
                 M.miids.mono_maps.read({type: cType, query: {}}, function (err, data) {
                     M.miids[cType + "s_table"].renderItemsFromResult(err, data)
+                    Data[cType] = data;
                 });
             })(types[i]);
         }
@@ -205,12 +208,30 @@
         // create map
         $("[data-form]").on("click", function () {
 
+            // get the form id
+            var formId = $(this).attr("data-form");
+
             // load form
-            M.miids.forms.loadForm ({ formId: $(this).attr("data-form") }, function (err, data) {
+            M.miids.forms.loadForm ({ formId: formId }, function (err, data) {
 
                 // handle error
                 if (err) {
                     return console.error (err);
+                }
+
+                switch (formId) {
+                    case "create_map":
+                        // TODO
+                        break;
+                    case "create_marker":
+                        // TODO
+                        break;
+                    case "create_infowin":
+                        // TODO
+                        break;
+                    case "create_icon":
+                        // TODO
+                        break;
                 }
 
                 // show modal
