@@ -88,6 +88,12 @@
                 label: {
                     type: "string"
                   , label: "Label"
+                  , order: -1
+                  , nosort: true
+                }
+              , title: {
+                    type: "string"
+                  , label: "Title"
                   , order: 0
                   , nosort: true
                 }
@@ -132,28 +138,10 @@
                   , order: 0
                   , nosort: true
                 }
-              , title: {
-                    type: "string"
-                  , label: "Title"
-                  , order: 1
-                  , nosort: true
-                }
               , content: {
                     type: "string"
                   , label: "Content"
                   , order: 2
-                  , nosort: true
-                }
-              , "pixelOffset.x": {
-                    type: "number"
-                  , label: "Offset X"
-                  , order: 3
-                  , nosort: true
-                }
-              , "pixelOffset.y": {
-                    type: "number"
-                  , label: "Offset Y"
-                  , order: 4
                   , nosort: true
                 }
             }
