@@ -19,6 +19,10 @@
             $map.hide();
             $debugPre.text("Missing mapId.");
         }
+
+        M.miids.mono_maps.embed ({mapId: mapId}, function (err, data) {
+            $debugPre.text(err || JSON.stringify (data, null, 4));
+        });
     };
 
     /**
