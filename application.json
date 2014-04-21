@@ -156,6 +156,17 @@
                 "html": "/html/tables/maps.html",
                 "table": ".data-table",
                 "container": ".data-table tbody",
+                "template": {
+                    "binds": [
+                        {
+                            "on": [{
+                                "name": "click",
+                                "handler": "selectItem",
+                                "noEvent": true
+                            }]
+                        }
+                    ]
+                },
                 "options": {
                     "selection": "single",
                     "id": "_id",

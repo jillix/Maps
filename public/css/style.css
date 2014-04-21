@@ -21,3 +21,20 @@ body { background: #ecf0f1; }
     background: #c0392b;
     color: white;
 }
+
+#maps_table table {
+    background: #2980b9;
+    font-weight: bold;
+}
+
+#maps_table table thead {
+    background: #2771A2;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tr.selected {
+    background: #34495e;
+}
