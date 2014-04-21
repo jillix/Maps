@@ -239,7 +239,22 @@
 
                 switch (formId) {
                     case "create_map":
-                        // TODO
+
+                        var $markers = []
+
+                        // create icons
+                        for (var i = 0; i < Data.marker.length; ++i) {
+                            var cMarker = Data.marker[i];
+                            $markers.push (
+                                $("<option>", {
+                                    value: cMarker._id
+                                  , html: cMarker.label || cMarker._id
+                                })
+                            );
+                        }
+
+                        // refresh markers
+                        $("[data-field='markers']").empty().append($markers);
                         break;
                     case "create_marker":
 
@@ -301,6 +316,7 @@
             case "map":
                 data = {
                     name: formObj.name
+                  , markers: formObj.markers
                   , options: {
                         center: {
                             lat: Number (formObj.lat)
