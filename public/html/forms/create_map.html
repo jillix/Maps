@@ -4,6 +4,8 @@
 <legend>Create a new map</legend>
 
 <input type="hidden" data-field="formType" value="map">
+<input type="hidden" data-field="_id">
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputMapName">Map Name</label>
@@ -15,18 +17,18 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="inputLat">Latitude</label>
+  <label class="col-md-4 control-label" for="inputLat">Center Latitude</label>
   <div class="col-md-8">
-  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="lat">
+  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="options.center.lat" data-convert-to="number">
 
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="inputLongitude">Longitude</label>
+  <label class="col-md-4 control-label" for="inputLongitude">Center Longitude</label>
   <div class="col-md-8">
-  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="lng">
+  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="options.center.lng" data-convert-to="number">
 
   </div>
 </div>
@@ -35,7 +37,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputZoom">Zoom</label>
   <div class="col-md-8">
-  <input id="inputZoom" name="inputZoom" type="text" placeholder="" class="form-control input-md" data-field="zoom">
+  <input id="inputZoom" name="inputZoom" type="text" placeholder="" class="form-control input-md" data-field="options.zoom" data-convert-to="number">
 
   </div>
 </div>
@@ -44,7 +46,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputMapType">Map type</label>
   <div class="col-md-8">
-    <select id="inputMapType" name="inputMapType" class="form-control" data-field="type">
+    <select id="inputMapType" name="inputMapType" class="form-control" data-field="options.type">
       <option value="">Select a map type</option>
       <option value="ROADMAP">ROADMAP</option>
       <option value="SATELLITE">SATELLITE</option>

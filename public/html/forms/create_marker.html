@@ -4,6 +4,7 @@
 <legend>Create a new marker</legend>
 
 <input type="hidden" data-field="formType" value="marker">
+<input type="hidden" data-field="_id">
 
 <!-- Text input-->
 <div class="form-group">
@@ -27,7 +28,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputLat">Latitude</label>
   <div class="col-md-8">
-  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="lat">
+  <input id="inputLat" name="inputLat" type="text" placeholder="" class="form-control input-md" data-field="position.lat" data-convert-to="number">
   </div>
 </div>
 
@@ -35,7 +36,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputLongitude">Longitude</label>
   <div class="col-md-8">
-  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="lng">
+  <input id="inputLongitude" name="inputLongitude" type="text" placeholder="" class="form-control input-md" data-field="position.lng" data-convert-to="number">
 
   </div>
 </div>
@@ -46,7 +47,7 @@
   <div class="col-md-4">
   <div class="checkbox">
     <label for="inputVisible-0">
-      <input type="checkbox" name="inputVisible" id="inputVisible-0" value="visible" data-field="visible" checked>
+      <input type="checkbox" name="inputVisible" id="inputVisible-0" value="visible" data-field="visible" data-convert-to="boolean" checked>
       Visible
     </label>
     </div>

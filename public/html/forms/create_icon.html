@@ -3,10 +3,10 @@
 <!-- Form Name -->
 <legend>Create a new icon</legend>
 
+<img src="http://jipics.net/?src=8319c22f1713bc2327c1ad9d265bcea6.png&size=40" data-field="path" data-value="attr" data-params="src">
 <input type="hidden" data-field="formType" value="icon">
-<input type="hidden" data-field="path" value="http://jipics.net/?src=8319c22f1713bc2327c1ad9d265bcea6.png&size=40">
+<input type="hidden" data-field="_id">
 
-<img src="http://jipics.net/?src=8319c22f1713bc2327c1ad9d265bcea6.png&size=40">
 
 <!-- Text input-->
 <div class="form-group">
@@ -21,7 +21,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputWidth">Width</label>
   <div class="col-md-8">
-  <input id="inputWidth" name="inputWidth" type="text" placeholder="" class="form-control input-md" data-field="width">
+  <input id="inputWidth" name="inputWidth" type="text" placeholder="" class="form-control input-md" data-field="size.w" data-convert-to="number">
   <span class="help-block">The width of the icon</span>
   </div>
 </div>
@@ -30,7 +30,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputHeight">Height</label>
   <div class="col-md-8">
-  <input id="inputHeight" name="inputHeight" type="text" placeholder="" class="form-control input-md" data-field="height">
+  <input id="inputHeight" name="inputHeight" type="text" placeholder="" class="form-control input-md" data-field="size.h" data-convert-to="number">
   <span class="help-block">The height of the icon</span>
   </div>
 </div>
@@ -39,7 +39,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputOriginX">Origin X</label>
   <div class="col-md-8">
-  <input id="inputOriginX" name="inputOriginX" type="text" placeholder="" class="form-control input-md" data-field="originX">
+  <input id="inputOriginX" name="inputOriginX" type="text" placeholder="" class="form-control input-md" data-field="origin.x" data-convert-to="number">
 
   </div>
 </div>
@@ -48,7 +48,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputOriginY">Origin Y</label>
   <div class="col-md-8">
-  <input id="inputOriginY" name="inputOriginY" type="text" placeholder="" class="form-control input-md" data-field="originY">
+  <input id="inputOriginY" name="inputOriginY" type="text" placeholder="" class="form-control input-md" data-field="origin.y" data-convert-to="number">
 
   </div>
 </div>
@@ -57,7 +57,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputAnchorX">Anchor X</label>
   <div class="col-md-8">
-  <input id="inputAnchorX" name="inputAnchorX" type="text" placeholder="" class="form-control input-md" data-field="anchorX">
+  <input id="inputAnchorX" name="inputAnchorX" type="text" placeholder="" class="form-control input-md" data-field="anchor.x" data-convert-to="number">
 
   </div>
 </div>
@@ -66,7 +66,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="inputAnchorY">Anchor Y</label>
   <div class="col-md-8">
-  <input id="inputAnchorY" name="inputAnchorY" type="text" placeholder="" class="form-control input-md" data-field="anchorY">
+  <input id="inputAnchorY" name="inputAnchorY" type="text" placeholder="" class="form-control input-md" data-field="anchor.y" data-convert-to="number">
 
   </div>
 </div>
