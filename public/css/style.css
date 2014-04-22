@@ -6,9 +6,8 @@
 /* general */
 body { background: #ecf0f1; }
 
-a {
-    color: white;
-}
+a { color: white; }
+img { max-width: 100%; }
 
 /* util classes */
 .mt-s  { margin-top: 15px  !important; }
