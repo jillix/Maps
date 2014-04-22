@@ -109,8 +109,6 @@
                   , deleteButtonValue: '<i class="fa fa-times"></i>'
                   , automaticUpload:   true
                   , hideDeleteButton:  true
-                }).on("imageChanged", function () {
-                    console.log("Changed the src");
                 });
                 break;
         }
