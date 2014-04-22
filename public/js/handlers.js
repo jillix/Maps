@@ -38,6 +38,70 @@
         }
     }
 
+    /**
+     *  This function updates the <select> elements
+     *
+     * */
+    function updateLinkedFields (formId) {
+        switch (formId) {
+            case "map":
+
+                var $markers = []
+
+                // create icons
+                for (var i = 0; i < Data.marker.length; ++i) {
+                    var cMarker = Data.marker[i];
+                    $markers.push (
+                        $("<option>", {
+                            value: cMarker._id
+                          , html: cMarker.label || cMarker._id
+                        })
+                    );
+                }
+
+                // refresh markers
+                $("[data-field='markers']").empty().append($markers);
+                break;
+            case "marker":
+
+                // icons and infowindows options
+                var $selectOneOption = $("<option>", {
+                        value: ""
+                      , html: "Choose an option"
+                    })
+                  , $icons = [$selectOneOption.clone()]
+                  , $infoWins = [$selectOneOption.clone()]
+                  ;
+
+                // create icons
+                for (var i = 0; i < Data.icon.length; ++i) {
+                    var cIcon = Data.icon[i];
+                    $icons.push (
+                        $("<option>", {
+                            value: cIcon._id
+                          , html: cIcon.label || cIcon._id
+                        })
+                    );
+                }
+
+                // create infowindows
+                for (var i = 0; i < Data.infowin.length; ++i) {
+                    var cInfoWin = Data.infowin[i];
+                    $infoWins.push (
+                        $("<option>", {
+                            value: cInfoWin._id
+                          , html: cInfoWin.label || cInfoWin._id
+                        })
+                    );
+                }
+
+                // append icons and infowindows
+                $("[data-field='icon']").empty().append($icons);
+                $("[data-field='infowin']").empty().append($infoWins);
+                break;
+        }
+    }
+
     // pseudo templates used for generating table headers
     const TEMPLATES = {
         maps: {
@@ -240,63 +304,7 @@
                     return console.error (err);
                 }
 
-                switch (formId) {
-                    case "create_map":
-
-                        var $markers = []
-
-                        // create icons
-                        for (var i = 0; i < Data.marker.length; ++i) {
-                            var cMarker = Data.marker[i];
-                            $markers.push (
-                                $("<option>", {
-                                    value: cMarker._id
-                                  , html: cMarker.label || cMarker._id
-                                })
-                            );
-                        }
-
-                        // refresh markers
-                        $("[data-field='markers']").empty().append($markers);
-                        break;
-                    case "create_marker":
-
-                        // icons and infowindows options
-                        var $selectOneOption = $("<option>", {
-                                value: ""
-                              , html: "Choose an option"
-                            })
-                          , $icons = [$selectOneOption.clone()]
-                          , $infoWins = [$selectOneOption.clone()]
-                          ;
-
-                        // create icons
-                        for (var i = 0; i < Data.icon.length; ++i) {
-                            var cIcon = Data.icon[i];
-                            $icons.push (
-                                $("<option>", {
-                                    value: cIcon._id
-                                  , html: cIcon.label || cIcon._id
-                                })
-                            );
-                        }
-
-                        // create infowindows
-                        for (var i = 0; i < Data.infowin.length; ++i) {
-                            var cInfoWin = Data.infowin[i];
-                            $infoWins.push (
-                                $("<option>", {
-                                    value: cInfoWin._id
-                                  , html: cInfoWin.label || cInfoWin._id
-                                })
-                            );
-                        }
-
-                        // append icons and infowindows
-                        $("[data-field='icon']").empty().append($icons);
-                        $("[data-field='infowin']").empty().append($infoWins);
-                        break;
-                }
+                updateLinkedFields (formId);
 
                 // show modal
                 $("#modal").modal("show");
@@ -310,79 +318,39 @@
      * */
     Maps.dialogSaved = function (formObj) {
 
-        // get the type
-        var type = formObj.formType;
+        // create or update object
+        var cuObject = {
+            type: formObj.formType
+        };
         delete formObj.formType;
 
-        var data = null;
-        switch (type) {
-            case "map":
-                data = {
-                    name: formObj.name
-                  , markers: formObj.markers
-                  , options: {
-                        center: {
-                            lat: Number (formObj.lat)
-                          , lng: Number (formObj.lng)
-                        }
-                      , zoom: Number (formObj.zoom)
-                      , type: formObj.type
-                    }
-                };
-                break;
-            case "marker":
-                data = {
-                    position: {
-                        lat: Number (formObj.lat)
-                      , lng: Number (formObj.lng)
-                    }
-                  , title: formObj.title
-                  , label: formObj.label
-                  , visible: Boolean (formObj.visible)
-                  , icon: formObj.icon
-                  , infowin: formObj.infowin
-                };
+        // we have an update operation
+        if (formObj._id) {
 
-                // no infowindow
-                if (!formObj.infowin) {
-                    delete data.infowin;
-                }
+            // build the query
+            cuObject.query = {
+                _id: formObj._id
+            };
 
-                // no icon
-                if (!formObj.icon) {
-                    delete data.icon;
-                }
-                break;
-            case "infowin":
-                data = {
-                    label: formObj.label
-                  , content: formObj.content
-                };
-                break;
-            case "icon":
-                data = {
-                    path: formObj.path
-                  , label: formObj.label
-                  , size: {
-                        w: Number (formObj.width)
-                      , h: Number (formObj.height)
-                    }
-                  , origin: {
-                        x: Number (formObj.originX)
-                      , y: Number (formObj.originY)
-                    }
-                  , anchor: {
-                        x: Number (formObj.anchorX)
-                      , y: Number (formObj.anchorY)
-                    }
-                };
-                break;
+            // delete the id
+            delete formObj._id;
+
+            // set data
+            cuObject.data = {
+                $set: formObj
+            };
+        } else {
+            // delete the id
+            delete formObj._id;
+
+            // set data
+            cuObject.data = formObj;
         }
 
         // create maps, markers, infowindows, icon
         M.miids.mono_maps.create({
             type: type
-          , data: data
+          , data: formObj
         }, function (err, data) {
 
             // handle error
@@ -397,4 +365,31 @@
             refreshTables();
         });
     }
+
+    /**
+     *  Edit documents in tables
+     *
+     * */
+    Maps.edit = function (formId) {
+
+        // load form
+        M.miids.forms.loadForm ({ formId: formId }, function (err, data) {
+
+            // handle error
+            if (err) {
+                // fill form
+                M.miids.forms.showError (err);
+            }
+
+            updateLinkedFields (formId);
+
+            // fill form
+            M.miids.forms.fillForm (
+                M.miids[formId + "s_table"].getSelected(true)[0]
+            );
+
+            // show modal
+            $("#modal").modal("show");
+        });
+    };
 })(window);
