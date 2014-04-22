@@ -99,6 +99,20 @@
                 $("#forms [data-field='icon']").empty().append($icons);
                 $("#forms [data-field='infowin']").empty().append($infoWins);
                 break;
+            case "icon":
+                $("#forms [data-field='path']").imageUpload({
+                    formAction:        "/@/uploadImageEmitter/emit"
+                  , inputFileName:     "inputImage"
+                  , browseButtonClass: "ml-xs btn btn-xs btn-success"
+                  , browseButtonValue: '<i class="fa fa-upload"></i>'
+                  , deleteButtonClass: "ml-xs btn btn-xs btn-danger btn-delete-image"
+                  , deleteButtonValue: '<i class="fa fa-times"></i>'
+                  , automaticUpload:   true
+                  , hideDeleteButton:  true
+                }).on("imageChanged", function () {
+                    console.log("Changed the src");
+                });
+                break;
         }
     }
 
@@ -271,8 +285,9 @@
      * */
     Maps.ready = function () {
 
-        // load bootstrap js
+        // load jQuery dependents
         $.getScript ("//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js");
+        $.getScript ("/js/lib/jQuery-image-upload.js");
 
         // set table templates
         var templatesToSet = Object.keys (TEMPLATES);
