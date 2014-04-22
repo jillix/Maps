@@ -6,6 +6,7 @@
       , "login": "layout_login"
       , "/": "layout_home"
       , "embed": "layout_embed"
+      , "uploadImage": "uploadImageEmitter"
     }
   , "locale": "en"
   , "domains": [
@@ -336,6 +337,22 @@
                   , "/css/not-found.css"
                 ]
               , "title": "404 Page not found"
+            }
+        }
+      , "uploadImageEmitter": {
+            "module": "github/IonicaBizau/emitter/v0.2.1"
+          , "roles": [ 1 ]
+          , "config": {}
+          , "operations": {
+                "emit": {
+                    "roles": [ 1 ]
+                  , "params": [
+                        {
+                            "eventName": "imageUpload"
+                          , "uploadDir": "uploads"
+                        }
+                    ]
+                }
             }
         }
       , "crud": {
