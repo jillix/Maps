@@ -60,7 +60,7 @@
                 }
 
                 // refresh markers
-                $("[data-field='markers']").empty().append($markers);
+                $("#forms [data-field='markers']").empty().append($markers);
                 break;
             case "marker":
 
@@ -96,8 +96,8 @@
                 }
 
                 // append icons and infowindows
-                $("[data-field='icon']").empty().append($icons);
-                $("[data-field='infowin']").empty().append($infoWins);
+                $("#forms [data-field='icon']").empty().append($icons);
+                $("#forms [data-field='infowin']").empty().append($infoWins);
                 break;
         }
     }
@@ -324,6 +324,8 @@
         };
         delete formObj.formType;
 
+        var method = null;
+
         // we have an update operation
         if (formObj._id) {
 
@@ -339,19 +341,22 @@
             cuObject.data = {
                 $set: formObj
             };
+
+            // set method value
+            method = "update";
         } else {
             // delete the id
             delete formObj._id;
 
             // set data
             cuObject.data = formObj;
+
+            // set method value
+            method = "create";
         }
 
         // create maps, markers, infowindows, icon
-        M.miids.mono_maps.create({
-            type: type
-          , data: formObj
-        }, function (err, data) {
+        M.miids.mono_maps[method](cuObject, function (err, data) {
 
             // handle error
             if (err) {
