@@ -60,6 +60,38 @@
                     "layoutLoggedInView": {
                         "ready": "Maps.ready"
                     }
+                  , "maps_table": {
+                        "selectionChanged": [{
+                            "handler": {
+                                "name": "Maps.edit"
+                              , "args": [ "map" ]
+                            }
+                        }]
+                    }
+                  , "markers_table": {
+                        "selectionChanged": [{
+                            "handler": {
+                                "name": "Maps.edit"
+                              , "args": [ "marker" ]
+                            }
+                        }]
+                    }
+                  , "infowins_table": {
+                        "selectionChanged": [{
+                            "handler": {
+                                "name": "Maps.edit"
+                              , "args": [ "infowin" ]
+                            }
+                        }]
+                    }
+                  , "icons_table": {
+                        "selectionChanged": [{
+                            "handler": {
+                                "name": "Maps.edit"
+                              , "args": [ "icon" ]
+                            }
+                        }]
+                    }
                 }
             }
         }
@@ -80,7 +112,7 @@
             }
         }
       , "forms": {
-            "module": "github/IonicaBizau/form-serializer/v0.1.3"
+            "module": "github/IonicaBizau/form-serializer/dev"
           , "roles": [1]
           , "config": {
                 "html": "/html/data/forms/index.html"
@@ -97,10 +129,10 @@
                   , "params": [
                         {
                             "forms": {
-                                "create_map": "/public/html/forms/create_map.html"
-                              , "create_marker": "/public/html/forms/create_marker.html"
-                              , "create_infowin": "/public/html/forms/create_infowin.html"
-                              , "create_icon": "/public/html/forms/create_icon.html"
+                                "map": "/public/html/forms/create_map.html"
+                              , "marker": "/public/html/forms/create_marker.html"
+                              , "infowin": "/public/html/forms/create_infowin.html"
+                              , "icon": "/public/html/forms/create_icon.html"
                             }
                         }
                     ]
