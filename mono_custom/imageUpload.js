@@ -1,26 +1,5 @@
 // dependencies
-var Jipics  = require ("jipics")
-  , Application = require("../application")
-  ;
-
-/**
- * Init crud
- *
- */
-setTimeout(function () {
-
-    // get module field
-    var module = Application.miids.crud.module;
-
-    // dev version?
-    if (module.substring(module.lastIndexOf("/") + 1) === "dev") {
-        module += "_" + M.config.app.id;
-    }
-
-    // require that file to initialize the server events
-    require(M.app.getPath() + "/mono_modules/" +  module + "/operations");
-
-}, 3000);
+var Jipics  = require ("jipics");
 
 /*
  *  This handles the image upload requests
@@ -28,6 +7,7 @@ setTimeout(function () {
  * */
 M.on("imageUpload", function (link) {
 
+    debugger;
     // some validations
     if (!link.files || !link.files.inputImage || !link.files.inputImage.size) {
         return link.send(400, { error: "Invalid image upload" });
