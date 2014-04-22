@@ -41,3 +41,7 @@ tbody tr {
 tr.selected {
     background: #34495e;
 }
+
+.controls.jQuery-image-upload-controls {
+    z-index: 9999999999;
+}
