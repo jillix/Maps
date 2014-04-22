@@ -1,7 +1,4 @@
-jillix :small_red_triangle_down: Maps
-=====================================
-
-> ![](http://i.imgur.com/smI6f9P.png)
+<img src="http://i.imgur.com/smI6f9P.png" width=100%>
 A Mono application wrapper for Google Maps.
 
 ## Mockup
