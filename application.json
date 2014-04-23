@@ -116,7 +116,7 @@
             }
         }
       , "forms": {
-            "module": "github/IonicaBizau/form-serializer/dev"
+            "module": "github/IonicaBizau/form-serializer/v0.2.1"
           , "roles": [1]
           , "config": {
                 "html": "/html/data/forms/index.html"
@@ -203,7 +203,7 @@
             }
         }
       , "maps_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.13"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/maps.html"
@@ -231,7 +231,7 @@
             }
         }
       , "markers_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.13"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/markers.html"
@@ -258,7 +258,7 @@
             }
         }
       , "infowins_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.13"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/infowins.html"
@@ -285,7 +285,7 @@
             }
         }
       , "icons_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.13"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/icons.html"
