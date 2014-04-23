@@ -13,6 +13,7 @@
         "maps.dev.jillix.net"
       , "maps.jillix.net"
       , "maps.mono.ch"
+      , "jxmaps.com"
     ]
   , "publicDir": "public"
   , "publicRole": "0"
@@ -102,6 +103,8 @@
           , "config": {
                 "options": {
                     "map": "#map"
+                  , "waiter": "#waiter"
+                  , "error": "#error"
                 }
             }
           , "operations": {

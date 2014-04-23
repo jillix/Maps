@@ -1,16 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+    background: #34495e;
 }
 
 
-#layout_embed, #map {
-    height: 100%;
-    width: 100%;
+#layout_embed, #map, #waiter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#map {
+    z-index: 2;
+}
+
+#waiter {
+    z-index: 3;
 }
 
 pre.debug {
     margin: 10px;
+}
+
+/* error */
+#error {
+    text-align: center;
+    color: #ecf0f1;
+    font-family: "Open Sans", sans-serif;
+    text-shadow: 1px 1px 0 #bdc3c7;
+    font-size: 1em;
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -0.5em;
+}
+
+/* loader */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -58px;
+}
+
+.bubble {
+  -webkit-animation: expand .75s ease-in-out infinite;
+  animation: expand .75s ease-in-out infinite;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  margin: 0 3px;
+  width: 14px;
+  height: 14px;
+}
+
+.bubble:nth-child(1) {
+  background: #27ae60;
+}
+
+.bubble:nth-child(2) {
+  -webkit-animation-delay: 180ms;
+  animation-delay: 180ms;
+  background: #f1c40f;
+}
+
+.bubble:nth-child(3) {
+  -webkit-animation-delay: 360ms;
+  animation-delay: 360ms;
+  background: #e67e22;
+}
+
+.bubble:nth-child(4) {
+  -webkit-animation-delay: 540ms;
+  animation-delay: 540ms;
+  background: #2980b9;
+}
+
+@-webkit-keyframes expand {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.55);
+    transform: scale(1.55);
+  }
+}
+
+@keyframes expand {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.55);
+    transform: scale(1.55);
+  }
 }
