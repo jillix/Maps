@@ -23,7 +23,7 @@
     ]
   , "miids": {
         "layout_home": {
-            "module": "github/jillix/bind-layout/v0.2.2"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/home/index.html"
@@ -38,7 +38,7 @@
             }
         }
       , "layoutLoggedInView": {
-            "module": "github/jillix/bind-layout/v0.2.2"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 1 ]
           , "config": {
                 "html": "/html/home/loggedin_view.html"
@@ -116,7 +116,7 @@
             }
         }
       , "forms": {
-            "module": "github/IonicaBizau/form-serializer/v0.2.2"
+            "module": "github/IonicaBizau/form-serializer/v0.2.3"
           , "roles": [1]
           , "config": {
                 "html": "/html/data/forms/index.html"
@@ -144,14 +144,14 @@
             }
         }
       , "layoutPublicInView": {
-            "module": "github/jillix/bind-layout/v0.2.2"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 0 ]
           , "config": {
                 "html": "/html/home/public_view.html"
             }
         }
       , "login": {
-            "module": "github/jillix/login-providers/v0.2.2"
+            "module": "github/jillix/login-providers/v0.2.3"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/login/login.html"
@@ -191,7 +191,7 @@
             }
         }
       , "layout_login": {
-            "module": "github/jillix/bind-layout/v0.1.9"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/login/index.html"
@@ -203,7 +203,7 @@
             }
         }
       , "maps_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.15"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/maps.html"
@@ -231,7 +231,7 @@
             }
         }
       , "markers_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.15"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/markers.html"
@@ -258,7 +258,7 @@
             }
         }
       , "infowins_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.15"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/infowins.html"
@@ -285,7 +285,7 @@
             }
         }
       , "icons_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.1.14"
+            "module": "github/IonicaBizau/bind-table-crud/v0.1.15"
           , "roles": [1]
           , "config": {
                 "html": "/html/tables/icons.html"
@@ -312,7 +312,7 @@
             }
         }
       , "layout_embed": {
-            "module": "github/jillix/bind-layout/v0.2.2"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/embed/index.html"
@@ -331,7 +331,7 @@
             }
         }
       , "layout_not_found": {
-            "module": "github/jillix/bind-layout/v0.2.2"
+            "module": "github/jillix/bind-layout/v0.2.3"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/errors/404.html"
@@ -343,7 +343,7 @@
             }
         }
       , "uploadImageEmitter": {
-            "module": "github/IonicaBizau/emitter/v0.2.1"
+            "module": "github/IonicaBizau/emitter/v0.2.2"
           , "roles": [ 1 ]
           , "config": {}
           , "operations": {
