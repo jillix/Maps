@@ -23,7 +23,7 @@
     ]
   , "miids": {
         "layout_home": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/home/index.html"
@@ -38,7 +38,7 @@
             }
         }
       , "layoutLoggedInView": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 1 ]
           , "config": {
                 "html": "/html/home/loggedin_view.html"
@@ -144,7 +144,7 @@
             }
         }
       , "layoutPublicInView": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 0 ]
           , "config": {
                 "html": "/html/home/public_view.html"
@@ -191,7 +191,7 @@
             }
         }
       , "layout_login": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/login/index.html"
@@ -312,7 +312,7 @@
             }
         }
       , "layout_embed": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/embed/index.html"
@@ -331,7 +331,7 @@
             }
         }
       , "layout_not_found": {
-            "module": "github/jillix/bind-layout/v0.2.3"
+            "module": "github/jillix/bind-layout/v0.2.4"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/errors/404.html"
