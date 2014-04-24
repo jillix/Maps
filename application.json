@@ -98,13 +98,16 @@
             }
         }
       , "mono_maps": {
-            "module": "github/jillix/mono-maps/dev"
+            "module": "github/jillix/mono-maps/v0.1.0"
           , "roles": [0, 1]
           , "config": {
                 "options": {
-                    "map": "#map"
-                  , "waiter": "#waiter"
-                  , "error": "#error"
+                    "ui": {
+                        "map": "#map"
+                      , "waiter": "#waiter"
+                      , "error": "#error"
+                    }
+                  , "embedPage": "/embed"
                 }
             }
           , "operations": {
@@ -317,7 +320,6 @@
           , "config": {
                 "html": "/html/embed/index.html"
               , "css": [ "/css/embed.css" ]
-              , "scripts": [ "/js/embed.js" ]
               , "title": "jxMaps"
               , "waitFor": [ "mono_maps" ]
               , "modules": {
@@ -359,7 +361,7 @@
             }
         }
       , "crud": {
-            "module": "github/jillix/crud/dev"
+            "module": "github/jillix/crud/v0.3.0-beta3"
           , "roles": [ 0, 1 ]
           , "config": {}
         }
