@@ -101,7 +101,10 @@
             "module": "github/jillix/mono-maps/dev"
           , "roles": [0, 1]
           , "config": {
-                "options": {
+                "scripts": [
+                    "/js/lib/url.js"
+                ]
+              , "options": {
                     "ui": {
                         "map": "#map"
                       , "waiter": "#waiter"
