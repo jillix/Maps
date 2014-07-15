@@ -348,7 +348,7 @@
             }
         }
       , "uploadImageEmitter": {
-            "module": "github/IonicaBizau/emitter/v0.2.2"
+            "module": "github/IonicaBizau/emitter/dev"
           , "roles": [ 1 ]
           , "config": {}
           , "operations": {
