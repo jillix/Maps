@@ -98,7 +98,7 @@
             }
         }
       , "mono_maps": {
-            "module": "github/jillix/mono-maps/dev"
+            "module": "github/jillix/mono-maps/v0.1.2"
           , "roles": [0, 1]
           , "config": {
                 "scripts": [
@@ -157,7 +157,7 @@
             }
         }
       , "login": {
-            "module": "github/jillix/login-providers/dev"
+            "module": "github/jillix/login-providers/v0.2.4"
           , "roles": [ 0, 1 ]
           , "config": {
                 "html": "/html/login/login.html"
@@ -348,7 +348,7 @@
             }
         }
       , "uploadImageEmitter": {
-            "module": "github/IonicaBizau/emitter/dev"
+            "module": "github/IonicaBizau/emitter/v0.2.3"
           , "roles": [ 1 ]
           , "config": {}
           , "operations": {
