@@ -1,372 +1,489 @@
 {
-    "appId": "maps_LKI1OJGJ8SMR68E6F2KMEGOEMT1"
-  , "name": "Maps"
-  , "routes": {
-        "404": "layout_not_found"
-      , "login": "layout_login"
-      , "/": "layout_home"
-      , "embed": "layout_embed"
-      , "uploadImage": "uploadImageEmitter"
-    }
-  , "locale": "en"
-  , "domains": [
-        "maps.dev.jillix.net"
-      , "maps.jillix.net"
-      , "maps.mono.ch"
-      , "jxmaps.com"
-    ]
-  , "publicDir": "public"
-  , "publicRole": "0"
-  , "roles": [
-        { "id": 0, "name": "public" }
-      , { "id": 1, "name": "login" }
-    ]
-  , "miids": {
+    "appId": "maps_LKI1OJGJ8SMR68E6F2KMEGOEMT1",
+    "name": "Maps",
+    "routes": {
+        "404": "layout_not_found",
+        "login": "layout_login",
+        "/": "layout_home",
+        "embed": "layout_embed",
+        "uploadImage": "uploadImageEmitter"
+    },
+    "locale": "en",
+    "domains": [
+        "maps.dev.jillix.net",
+        "maps.jillix.net",
+        "maps.mono.ch",
+        "jxmaps.com"
+    ],
+    "publicDir": "public",
+    "publicRole": "0",
+    "roles": [
+        {
+            "id": 0,
+            "name": "public"
+        },
+        {
+            "id": 1,
+            "name": "login"
+        }
+    ],
+    "miids": {
         "layout_home": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {
-                "html": "/html/home/index.html"
-              , "css": [ "/css/style.css" ]
-              , "title": "Maps"
-              , "modules": {
-                    "#layoutLoggedInViewContainer": "layoutLoggedInView"
-                  , "#layoutPublicInViewContainer": "layoutPublicInView"
-                  , "#mono_mapsContainer": "mono_maps"
-                  , "#loginContainer": "login"
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
+                "html": "/html/home/index.html",
+                "css": [
+                    "/css/style.css"
+                ],
+                "title": "Maps",
+                "modules": {
+                    "#layoutLoggedInViewContainer": "layoutLoggedInView",
+                    "#layoutPublicInViewContainer": "layoutPublicInView",
+                    "#mono_mapsContainer": "mono_maps",
+                    "#loginContainer": "login"
                 }
             }
-        }
-      , "layoutLoggedInView": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 1 ]
-          , "config": {
-                "html": "/html/home/loggedin_view.html"
-              , "scripts": [ "/js/handlers.js" ]
-              , "waitFor": [
-                    "mono_maps"
-                  , "maps_table"
-                  , "markers_table"
-                  , "infowins_table"
-                  , "icons_table"
-                ]
-              , "modules": {
-                    "#mono_mapsContainer": "mono_maps"
-                  , "#maps_tableContainer": "maps_table"
-                  , "#markers_tableContainer": "markers_table"
-                  , "#infowins_tableContainer": "infowins_table"
-                  , "#icons_tableContainer": "icons_table"
-                  , "#formsContainer": "forms"
-                }
-              , "listen": {
+        },
+        "layoutLoggedInView": {
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/home/loggedin_view.html",
+                "scripts": [
+                    "/js/handlers.js"
+                ],
+                "waitFor": [
+                    "mono_maps",
+                    "maps_table",
+                    "markers_table",
+                    "infowins_table",
+                    "icons_table"
+                ],
+                "modules": {
+                    "#mono_mapsContainer": "mono_maps",
+                    "#maps_tableContainer": "maps_table",
+                    "#markers_tableContainer": "markers_table",
+                    "#infowins_tableContainer": "infowins_table",
+                    "#icons_tableContainer": "icons_table",
+                    "#formsContainer": "forms"
+                },
+                "listen": {
                     "layoutLoggedInView": {
                         "ready": "Maps.ready"
-                    }
-                  , "maps_table": {
-                        "selectionChanged": [{
-                            "handler": {
-                                "name": "Maps.edit"
-                              , "args": [ "map" ]
+                    },
+                    "maps_table": {
+                        "selectionChanged": [
+                            {
+                                "handler": {
+                                    "name": "Maps.edit",
+                                    "args": [
+                                        "map"
+                                    ]
+                                }
                             }
-                        }]
-                    }
-                  , "markers_table": {
-                        "selectionChanged": [{
-                            "handler": {
-                                "name": "Maps.edit"
-                              , "args": [ "marker" ]
+                        ]
+                    },
+                    "markers_table": {
+                        "selectionChanged": [
+                            {
+                                "handler": {
+                                    "name": "Maps.edit",
+                                    "args": [
+                                        "marker"
+                                    ]
+                                }
                             }
-                        }]
-                    }
-                  , "infowins_table": {
-                        "selectionChanged": [{
-                            "handler": {
-                                "name": "Maps.edit"
-                              , "args": [ "infowin" ]
+                        ]
+                    },
+                    "infowins_table": {
+                        "selectionChanged": [
+                            {
+                                "handler": {
+                                    "name": "Maps.edit",
+                                    "args": [
+                                        "infowin"
+                                    ]
+                                }
                             }
-                        }]
-                    }
-                  , "icons_table": {
-                        "selectionChanged": [{
-                            "handler": {
-                                "name": "Maps.edit"
-                              , "args": [ "icon" ]
+                        ]
+                    },
+                    "icons_table": {
+                        "selectionChanged": [
+                            {
+                                "handler": {
+                                    "name": "Maps.edit",
+                                    "args": [
+                                        "icon"
+                                    ]
+                                }
                             }
-                        }]
+                        ]
                     }
                 }
             }
-        }
-      , "mono_maps": {
-            "module": "github/jillix/mono-maps/v0.2.0"
-          , "roles": [0, 1]
-          , "config": {
+        },
+        "mono_maps": {
+            "module": "github/jillix/mono-maps/v0.2.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
                 "scripts": [
                     "/js/lib/url.js"
-                ]
-              , "options": {
+                ],
+                "options": {
                     "ui": {
-                        "map": "#map"
-                      , "waiter": "#waiter"
-                      , "error": "#error"
-                    }
-                  , "embedPage": "/embed"
+                        "map": "#map",
+                        "waiter": "#waiter",
+                        "error": "#error"
+                    },
+                    "embedPage": "/embed"
+                }
+            },
+            "operations": {
+                "create": {
+                    "roles": [
+                        1
+                    ]
+                },
+                "read": {
+                    "roles": [
+                        1
+                    ]
+                },
+                "update": {
+                    "roles": [
+                        1
+                    ]
+                },
+                "delete": {
+                    "roles": [
+                        1
+                    ]
+                },
+                "embed": {
+                    "roles": [
+                        0,
+                        1
+                    ]
                 }
             }
-          , "operations": {
-                "create": { "roles": [ 1 ] }
-              , "read":   { "roles": [ 1 ] }
-              , "update": { "roles": [ 1 ] }
-              , "delete": { "roles": [ 1 ] }
-              , "embed":  { "roles": [ 0, 1 ] }
-            }
-        }
-      , "forms": {
-            "module": "github/IonicaBizau/form-serializer/v0.3.0"
-          , "roles": [1]
-          , "config": {
-                "html": "/html/data/forms/index.html"
-              , "eventName": "dialogSaved"
-              , "listen": {
+        },
+        "forms": {
+            "module": "github/IonicaBizau/form-serializer/v0.3.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/data/forms/index.html",
+                "eventName": "dialogSaved",
+                "listen": {
                     "forms": {
                         "dialogSaved": "Maps.dialogSaved"
                     }
                 }
-            }
-          , "operations": {
+            },
+            "operations": {
                 "loadForm": {
-                    "roles": [1]
-                  , "params": [
+                    "roles": [
+                        1
+                    ],
+                    "params": [
                         {
                             "forms": {
-                                "map": "/public/html/forms/create_map.html"
-                              , "marker": "/public/html/forms/create_marker.html"
-                              , "infowin": "/public/html/forms/create_infowin.html"
-                              , "icon": "/public/html/forms/create_icon.html"
+                                "map": "/public/html/forms/create_map.html",
+                                "marker": "/public/html/forms/create_marker.html",
+                                "infowin": "/public/html/forms/create_infowin.html",
+                                "icon": "/public/html/forms/create_icon.html"
                             }
                         }
                     ]
                 }
             }
-        }
-      , "layoutPublicInView": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 0 ]
-          , "config": {
+        },
+        "layoutPublicInView": {
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                0
+            ],
+            "config": {
                 "html": "/html/home/public_view.html"
             }
-        }
-      , "login": {
-            "module": "github/jillix/login-providers/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {
-                "html": "/html/login/login.html"
-              , "loginPage": "/"
-            }
-          , "operations": {
+        },
+        "login": {
+            "module": "github/jillix/login-providers/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
+                "html": "/html/login/login.html",
+                "loginPage": "/"
+            },
+            "operations": {
                 "redirect": {
-                    "roles": [ 0, 1 ]
-                  , "params": [
-                        { "secretsFile": "/credentials/github.json" }
-                      , { "secretsFile": "/credentials/github.json" }
-                    ]
-                }
-              , "login": {
-                    "roles": [ 0, 1 ]
-                  , "params": [
+                    "roles": [
+                        0,
+                        1
+                    ],
+                    "params": [
                         {
                             "secretsFile": "/credentials/github.json"
-                          , "custom": "/login_custom.js"
-                          , "ds": "accountDS"
-                          , "role": "login"
-                        }
-                      , {
+                        },
+                        {
                             "secretsFile": "/credentials/github.json"
-                          , "custom": "/login_custom.js"
-                          , "ds": "accountDS"
-                          , "role": "login"
                         }
                     ]
-                }
-              , "logout": {
-                    "roles": [ 1 ]
-                }
-              , "userInfo": {
-                    "roles": [ 0, 1 ]
+                },
+                "login": {
+                    "roles": [
+                        0,
+                        1
+                    ],
+                    "params": [
+                        {
+                            "secretsFile": "/credentials/github.json",
+                            "custom": "/login_custom.js",
+                            "ds": "accountDS",
+                            "role": "login"
+                        },
+                        {
+                            "secretsFile": "/credentials/github.json",
+                            "custom": "/login_custom.js",
+                            "ds": "accountDS",
+                            "role": "login"
+                        }
+                    ]
+                },
+                "logout": {
+                    "roles": [
+                        1
+                    ]
+                },
+                "userInfo": {
+                    "roles": [
+                        0,
+                        1
+                    ]
                 }
             }
-        }
-      , "layout_login": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {
-                "html": "/html/login/index.html"
-              , "css": [ "/css/style.css" ]
-              , "title": "Signing in ..."
-              , "modules": {
+        },
+        "layout_login": {
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
+                "html": "/html/login/index.html",
+                "css": [
+                    "/css/style.css"
+                ],
+                "title": "Signing in ...",
+                "modules": {
                     "#loginContainer": "login"
                 }
             }
-        }
-      , "maps_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0"
-          , "roles": [1]
-          , "config": {
-                "html": "/html/tables/maps.html"
-              , "table": ".maps-table"
-              , "container": ".maps-table tbody"
-              , "template": {
+        },
+        "maps_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/tables/maps.html",
+                "table": ".maps-table",
+                "container": ".maps-table tbody",
+                "template": {
                     "binds": [
                         {
-                            "target": "td:not([data-field=embedLink])"
-                          , "on": [{
-                                "name": "click"
-                              , "handler": "selectItem"
-                              , "noEvent": true
-                            }]
+                            "target": "td:not([data-field=embedLink])",
+                            "on": [
+                                {
+                                    "name": "click",
+                                    "handler": "selectItem",
+                                    "noEvent": true
+                                }
+                            ]
                         }
                     ]
-                }
-              , "options": {
-                    "selection": "single"
-                  , "id": "_id"
-                  , "classes": {
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
                         "selected": "selected"
                     }
                 }
             }
-        }
-      , "markers_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0"
-          , "roles": [1]
-          , "config": {
-                "html": "/html/tables/markers.html"
-              , "table": ".markers-table"
-              , "container": ".markers-table tbody"
-              , "template": {
+        },
+        "markers_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/tables/markers.html",
+                "table": ".markers-table",
+                "container": ".markers-table tbody",
+                "template": {
                     "binds": [
                         {
-                            "on": [{
-                                "name": "click"
-                              , "handler": "selectItem"
-                              , "noEvent": true
-                            }]
+                            "on": [
+                                {
+                                    "name": "click",
+                                    "handler": "selectItem",
+                                    "noEvent": true
+                                }
+                            ]
                         }
                     ]
-                }
-              , "options": {
-                    "selection": "single"
-                  , "id": "_id"
-                  , "classes": {
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
                         "selected": "selected"
                     }
                 }
             }
-        }
-      , "infowins_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0"
-          , "roles": [1]
-          , "config": {
-                "html": "/html/tables/infowins.html"
-              , "table": ".infowins-table"
-              , "container": ".infowins-table tbody"
-              , "template": {
+        },
+        "infowins_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/tables/infowins.html",
+                "table": ".infowins-table",
+                "container": ".infowins-table tbody",
+                "template": {
                     "binds": [
                         {
-                            "on": [{
-                                "name": "click"
-                              , "handler": "selectItem"
-                              , "noEvent": true
-                            }]
+                            "on": [
+                                {
+                                    "name": "click",
+                                    "handler": "selectItem",
+                                    "noEvent": true
+                                }
+                            ]
                         }
                     ]
-                }
-              , "options": {
-                    "selection": "single"
-                  , "id": "_id"
-                  , "classes": {
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
                         "selected": "selected"
                     }
                 }
             }
-        }
-      , "icons_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0"
-          , "roles": [1]
-          , "config": {
-                "html": "/html/tables/icons.html"
-              , "table": ".icons-table"
-              , "container": ".icons-table tbody"
-              , "template": {
+        },
+        "icons_table": {
+            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "roles": [
+                1
+            ],
+            "config": {
+                "html": "/html/tables/icons.html",
+                "table": ".icons-table",
+                "container": ".icons-table tbody",
+                "template": {
                     "binds": [
                         {
-                            "on": [{
-                                "name": "click"
-                              , "handler": "selectItem"
-                              , "noEvent": true
-                            }]
+                            "on": [
+                                {
+                                    "name": "click",
+                                    "handler": "selectItem",
+                                    "noEvent": true
+                                }
+                            ]
                         }
                     ]
-                }
-              , "options": {
-                    "selection": "single"
-                  , "id": "_id"
-                  , "classes": {
+                },
+                "options": {
+                    "selection": "single",
+                    "id": "_id",
+                    "classes": {
                         "selected": "selected"
                     }
                 }
             }
-        }
-      , "layout_embed": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {
-                "html": "/html/embed/index.html"
-              , "css": [ "/css/embed.css" ]
-              , "title": "jxMaps"
-              , "waitFor": [ "mono_maps" ]
-              , "modules": {
+        },
+        "layout_embed": {
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
+                "html": "/html/embed/index.html",
+                "css": [
+                    "/css/embed.css"
+                ],
+                "title": "jxMaps",
+                "waitFor": [
+                    "mono_maps"
+                ],
+                "modules": {
                     "#mono_mapsContainer": "mono_maps"
-                }
-              , "listen": {
+                },
+                "listen": {
                     "layout_embed": {
                         "ready": "Maps.embed.ready"
                     }
                 }
             }
-        }
-      , "layout_not_found": {
-            "module": "github/jillix/bind-layout/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {
-                "html": "/html/errors/404.html"
-              , "css": [
-                    "/css/style.css"
-                  , "/css/not-found.css"
-                ]
-              , "title": "404 Page not found"
+        },
+        "layout_not_found": {
+            "module": "github/jillix/bind-layout/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {
+                "html": "/html/errors/404.html",
+                "css": [
+                    "/css/style.css",
+                    "/css/not-found.css"
+                ],
+                "title": "404 Page not found"
             }
-        }
-      , "uploadImageEmitter": {
-            "module": "github/IonicaBizau/emitter/v0.3.0"
-          , "roles": [ 1 ]
-          , "config": {}
-          , "operations": {
+        },
+        "uploadImageEmitter": {
+            "module": "github/IonicaBizau/emitter/v0.3.0",
+            "roles": [
+                1
+            ],
+            "config": {},
+            "operations": {
                 "emit": {
-                    "roles": [ 1 ]
-                  , "params": [
+                    "roles": [
+                        1
+                    ],
+                    "params": [
                         {
-                            "eventName": "imageUpload"
-                          , "uploadDir": "uploads"
+                            "eventName": "imageUpload",
+                            "uploadDir": "uploads"
                         }
                     ]
                 }
             }
-        }
-      , "crud": {
-            "module": "github/jillix/crud/v0.3.0"
-          , "roles": [ 0, 1 ]
-          , "config": {}
+        },
+        "crud": {
+            "module": "github/jillix/crud/v0.3.0",
+            "roles": [
+                0,
+                1
+            ],
+            "config": {}
         }
     }
 }
