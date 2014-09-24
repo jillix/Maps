@@ -1,25 +1,22 @@
-/*
- *  url.js
- *
+/**
+ *  url.js JavaScript library
+ *  =========================
  *  A lightweight JavaScript library that modifies the page url without refresh.
- *  Example:
+ *  Check out the documentation at: https://github.com/jillix/url.js
  *
- *    Url.addSearch("param", "value");
- *
- *  Copyright (c) 2014 jillix GmbH
- *
- * */
+ *  Copyright (c) 2014 jillix
+ */
 (function (window) {
 
     /**
      * queryString
-     * Util query string function
+     * Finds the value of parameter passed in first argument.
      *
-     * Thanks: http://stackoverflow.com/a/901144/1420197
-     *
-     * @param name: the parameter name
-     * @param notDecoded: if true, the returned value is not decoded
-     * @return: the value of search parameter
+     * @name queryString
+     * @function
+     * @param {String} name The parameter name
+     * @param {Boolean} notDecoded If true, the result will be encoded.
+     * @return {String} The value of the parameter name (`name` parameter)
      */
     function queryString (name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -38,119 +35,106 @@
 
     /**
      * parseQuery
-     * This function parses the query from url
+     * Parses the string from `search` parameter or the location search
      *
-     * @param search: if provided, this string will be parsed
-     * @return: an object containing all fields and values from search url
+     * @name parseQuery
+     * @function
+     * @param {String} search Optional string that should be parsed
+     * @return {Object} The parsed search query
      */
     function parseQuery (search) {
-        var query = (search || window.location.search).substring(1);
-        var vars = query.split('&');
-        var result = {};
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split('=');
-            result[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+        var query = {};
+        search = search || window.location.search
+        if (search[0] === "?") {
+            search = search.substring(1);
         }
-        return result;
+        if (!search) {
+            return {};
+        }
+        var a = search.split('&');
+        for (var i in a) {
+            var b = a[i].split('=');
+            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
+        }
+
+        return query;
     }
 
     /**
      * queryToString
-     * Converts a query objecto to string.
+     * Stringifies a query object
      *
-     * Example: {
-     *     param1: "value1",
-     *     param2: "value2"
-     * }
-     *
-     * is converted in "param1=value1&param2=value2"
-     *
-     * @param queryObj: the query object (see example above)
-     * @return: the stringified query object
+     * @name queryToString
+     * @function
+     * @param {Object} queryObj The object that should be stringified
+     * @return {String} The stringified value of `queryObj` object
      */
     function queryToString (queryObj) {
-        if (!queryObj || queryObj.constructor.name !== "Object") {
-            throw new Error ("Query object sohuld be an object");
+        if (!queryObj || queryObj.constructor !== Object) {
+            throw new Error ("Query object should be an object.");
         }
         var stringified = "";
         for (var param in queryObj) {
             if (!queryObj.hasOwnProperty(param)) continue;
-            stringified += param + "=" + queryObj[param] + "&";
+            stringified +=
+                param + "=" + encodeURIComponent(queryObj[param]) + "&";
         }
         stringified = stringified.substring(0, stringified.length - 1);
         return stringified;
     }
 
     /**
-     * replaceAt
-     * Replaces a character at known index
-     * Thanks! http://stackoverflow.com/a/1431113/1420197
-     *
-     * @param word: that word that should be modified
-     * @param start: start index
-     * @param end: end index
-     * @param character: string that should replace the index
-     * @return: the modified string
-     */
-    function replaceAt (word, start, end, character) {
-        return word.substr(0, start) + character + word.substr(end + character.length);
-    }
-
-    /**
      * updateSearchParam
      * Adds a parameter=value to the url (without page refresh)
      *
-     * @param param: the parameter name
-     * @param value: the parameter value (if value not provided,
-     * the parameter is deleted and url updated)
-     * @return
+     * @name updateSearchParam
+     * @function
+     * @param {String} param The parameter name
+     * @param {String|undefined} value The parameter value. If undefined, the parameter will be removed.
+     * @return undefined
      */
     function updateSearchParam (param, value) {
 
-        // parse query
         var searchParsed = parseQuery();
 
-        // no value means delete
+        // No value, we will delete param
         if (value === undefined) {
             delete searchParsed[param];
         } else {
-            // verify if old param has the same
+
+            // Same value, no fun
             value = encodeURIComponent(value);
             if (searchParsed[param] === value) {
                 return;
             }
-            // set the new value
+
+            // Update value in search object
             searchParsed[param] = value;
         }
 
-        // stringify the search object
+        // Stringify the search object
         var newSearch = "?" + queryToString(searchParsed);
 
-        // TODO When no parameter, "?" will be displayed because replaceState
-        //      requires a non empty string
-        // if (newSearch.length === 1) {
-        //     newSearch = "";
-        // }
-
-        // and finally replace the state
+        // Finally, replace the state
         window.history.replaceState(null, "", newSearch + location.hash);
     }
 
     /**
      * getLocation
-     * Returns the page url (without domaain and protocol)
+     * Returns the page url, but not including the domain name
      *
-     * @return: the page url (without domaain and protocol)
+     * @name getLocation
+     * @function
+     * @return {String} The page url (without domain)
      */
     function getLocation () {
         return window.location.pathname + window.location.search + window.location.hash;
     }
 
-    // export the Url object
     window.Url = {
-        getLocation: getLocation
-      , updateSearchParam: updateSearchParam
-      , queryString: queryString
-      , parseSearchQuery: parseQuery
+        getLocation: getLocation,
+        updateSearchParam: updateSearchParam,
+        queryString: queryString,
+        parseSearchQuery: parseQuery
     };
 })(window);
