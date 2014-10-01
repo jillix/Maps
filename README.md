@@ -87,13 +87,42 @@ The map must receive data as *Map data* resource type.
 
 ```js
 {
-  "label": {"type": "string"},
   "title": {"type": "string"},
   "position": {
     "lat": {"type": "number"},
     "lng": {"type": "number"},
   },
-  "visible": {"type": "boolean"}
+  "visible": {"type": "boolean", "default": true},
+  "infowin": {"type": "infowindow"},
+  "icon": {"type": "icon"}
+}
+```
+
+## Info Window
+
+```js
+{
+  "content": {"type": "string"}
+}
+```
+
+## Icon
+
+```js
+{
+    "type": {"type": "string"},
+    "size": {
+        "w": {"type": "number"},
+        "h": {"type": "number"}
+    },
+    "origin": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    },
+    "anchor": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    }
 }
 ```
 
