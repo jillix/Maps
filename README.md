@@ -110,7 +110,7 @@ The map must receive data as *Map data* resource type.
 
 ```js
 {
-    "type": {"type": "string"},
+    "path": {"type": "string"},
     "size": {
         "w": {"type": "number"},
         "h": {"type": "number"}
