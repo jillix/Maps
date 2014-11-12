@@ -51,15 +51,15 @@ A Mono application wrapper for Google Maps.
 
 ## Dynamic maps
 
-**Not yet implemented**
-
 Access map data from remote interface/file.
 
 > `maps.jillix.net/embed?data=http://example.com/api/map/getData`
 
-or 
+or
 
 > `maps.jillix.net/embed?data=http://example.com/map_data.json`
+
+The response should end with a `200` status code.
 
 # Resource Types
 The map must receive data as *Map data* resource type.
@@ -87,13 +87,42 @@ The map must receive data as *Map data* resource type.
 
 ```js
 {
-  "label": {"type": "string"},
   "title": {"type": "string"},
   "position": {
     "lat": {"type": "number"},
     "lng": {"type": "number"},
   },
-  "visible": {"type": "boolean"}
+  "visible": {"type": "boolean", "default": true},
+  "infowin": {"type": "infowindow"},
+  "icon": {"type": "icon"}
+}
+```
+
+## Info Window
+
+```js
+{
+  "content": {"type": "string"}
+}
+```
+
+## Icon
+
+```js
+{
+    "path": {"type": "string"},
+    "size": {
+        "w": {"type": "number"},
+        "h": {"type": "number"}
+    },
+    "origin": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    },
+    "anchor": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    }
 }
 ```
 
