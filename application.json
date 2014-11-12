@@ -129,7 +129,7 @@
             }
         },
         "mono_maps": {
-            "module": "github/jillix/mono-maps/dev",
+            "module": "github/jillix/mono-maps/v0.2.0",
             "roles": [
                 0,
                 1
