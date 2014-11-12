@@ -29,7 +29,7 @@
     ],
     "miids": {
         "layout_home": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 0,
                 1
@@ -49,7 +49,7 @@
             }
         },
         "layoutLoggedInView": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 1
             ],
@@ -129,7 +129,7 @@
             }
         },
         "mono_maps": {
-            "module": "github/jillix/mono-maps/v0.2.0",
+            "module": "github/jillix/mono-maps/dev",
             "roles": [
                 0,
                 1
@@ -177,7 +177,7 @@
             }
         },
         "forms": {
-            "module": "github/IonicaBizau/form-serializer/v0.3.0",
+            "module": "github/jillix/form-serializer/v0.3.1",
             "roles": [
                 1
             ],
@@ -209,7 +209,7 @@
             }
         },
         "layoutPublicInView": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 0
             ],
@@ -276,7 +276,7 @@
             }
         },
         "layout_login": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 0,
                 1
@@ -293,7 +293,7 @@
             }
         },
         "maps_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "module": "github/jillix/bind-table-crud/v0.2.1",
             "roles": [
                 1
             ],
@@ -325,7 +325,7 @@
             }
         },
         "markers_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "module": "github/jillix/bind-table-crud/v0.2.1",
             "roles": [
                 1
             ],
@@ -356,7 +356,7 @@
             }
         },
         "infowins_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "module": "github/jillix/bind-table-crud/v0.2.1",
             "roles": [
                 1
             ],
@@ -387,7 +387,7 @@
             }
         },
         "icons_table": {
-            "module": "github/IonicaBizau/bind-table-crud/v0.2.0",
+            "module": "github/jillix/bind-table-crud/v0.2.1",
             "roles": [
                 1
             ],
@@ -418,7 +418,7 @@
             }
         },
         "layout_embed": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 0,
                 1
@@ -443,7 +443,7 @@
             }
         },
         "layout_not_found": {
-            "module": "github/jillix/bind-layout/v0.3.0",
+            "module": "github/jillix/bind-layout/v0.3.1",
             "roles": [
                 0,
                 1
@@ -458,7 +458,7 @@
             }
         },
         "uploadImageEmitter": {
-            "module": "github/IonicaBizau/emitter/v0.3.0",
+            "module": "github/jillix/emitter/v0.3.1",
             "roles": [
                 1
             ],
