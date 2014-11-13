@@ -77,7 +77,7 @@ The map must receive data as *Map data* resource type.
     "zoom": {"type": "number"},
     "type": {"type": "string"},
     "clustering": {
-        "options": {"type": "string"}
+        "options": {"type": "object"}
     }
   },
   "markers": [{
