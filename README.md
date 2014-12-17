@@ -51,15 +51,15 @@ A Mono application wrapper for Google Maps.
 
 ## Dynamic maps
 
-**Not yet implemented**
-
 Access map data from remote interface/file.
 
 > `maps.jillix.net/embed?data=http://example.com/api/map/getData`
 
-or 
+or
 
-> `maps.jillix.net/embed?data=http://example.com/map_data.json`
+> `maps.jillix.net/embed?data=http://example.com/map-data.json`
+
+The response should end with a `200` status code.
 
 # Resource Types
 The map must receive data as *Map data* resource type.
@@ -75,7 +75,10 @@ The map must receive data as *Map data* resource type.
       "lng": {"type": "number"},
     },
     "zoom": {"type": "number"},
-    "type": {"type": "string"}
+    "type": {"type": "string"},
+    "clustering": {
+        "options": {"type": "object"}
+    }
   },
   "markers": [{
     "type": "marker"
@@ -83,17 +86,48 @@ The map must receive data as *Map data* resource type.
 }
 ```
 
+The `clustering` key is optional. If present, the markers will be clustered as instructed by the `clustering.options` object. If no clustering options are provided, the default [`MarkerClusterer`](http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/docs/reference.html) behavior will be used.
+
 ## Marker
 
 ```js
 {
-  "label": {"type": "string"},
   "title": {"type": "string"},
   "position": {
     "lat": {"type": "number"},
     "lng": {"type": "number"},
   },
-  "visible": {"type": "boolean"}
+  "visible": {"type": "boolean", "default": true},
+  "infowin": {"type": "infowindow"},
+  "icon": {"type": "icon"}
+}
+```
+
+## Info Window
+
+```js
+{
+  "content": {"type": "string"}
+}
+```
+
+## Icon
+
+```js
+{
+    "path": {"type": "string"},
+    "size": {
+        "w": {"type": "number"},
+        "h": {"type": "number"}
+    },
+    "origin": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    },
+    "anchor": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+    }
 }
 ```
 
